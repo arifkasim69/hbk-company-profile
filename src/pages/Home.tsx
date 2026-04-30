@@ -32,7 +32,7 @@ export function Home() {
             <img 
               alt="Structural Drawing" 
               className="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-              src="regenerated_image_1777579549020_1.png" 
+              src="/regenerated_image_1777579549020.png" 
             />
           </motion.div>
 
