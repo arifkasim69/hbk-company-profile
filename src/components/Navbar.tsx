@@ -18,7 +18,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: t('nav_home'), href: '/' },
+    { name: t('nav_home'), to: '/' },
     { name: t('nav_about'), href: '#tentang' },
     { name: t('nav_services'), href: '#layanan' },
     { name: t('nav_portfolio'), href: '#portfolio' },
@@ -41,14 +41,25 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name}
-              href={link.href}
-              className="font-display text-[11px] font-bold text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
+            link.to ? (
+              <Link 
+                key={link.name}
+                to={link.to}
+                className="font-display text-[11px] font-bold text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ) : (
+              <a 
+                key={link.name}
+                href={link.href}
+                className="font-display text-[11px] font-bold text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+              </a>
+            )
           ))}
           
           <div className="flex items-center gap-2 border-l border-white/10 pl-8 ml-4">
@@ -103,14 +114,25 @@ export function Navbar() {
             className="absolute top-full left-0 w-full bg-surface border-b border-white/10 p-8 lg:hidden flex flex-col gap-6"
           >
             {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="font-display text-sm font-bold text-white tracking-widest uppercase hover:text-primary transition-colors"
-              >
-                {link.name}
-              </a>
+              link.to ? (
+                <Link 
+                  key={link.name}
+                  to={link.to}
+                  onClick={() => setIsOpen(false)}
+                  className="font-display text-sm font-bold text-white tracking-widest uppercase hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a 
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="font-display text-sm font-bold text-white tracking-widest uppercase hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <button className="bg-primary text-on-primary px-6 py-4 font-display text-sm font-bold tracking-widest uppercase rounded-full">
               {t('nav_consult')}
