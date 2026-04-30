@@ -32,7 +32,7 @@ export function Home() {
             <img 
               alt="Structural Drawing" 
               className="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-              src="razones-para-ir-a-un-resort-de-vacaciones-1.webp" 
+              src="unnamed.png" 
             />
           </motion.div>
 
